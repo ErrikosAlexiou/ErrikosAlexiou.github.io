@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+</head>
+
+<style>
+    html {
+        cursor: not-allowed;
+    }
+
+    body {
+        background-color: #202124;
+        overflow: hidden;
+        cursor: not-allowed;
+    }
+
+    @font-face {
+        font-family: titleFont;
+        src: url("product-sans/Product\ Sans\ Regular.ttf");
+
+    }
+
+    @font-face {
+        font-family: searchFont;
+        src: url("Montserrat/Montserrat-VariableFont_wght.ttf")
+    }
+
+    .center1 {
+        text-align: center;
+        cursor: not-allowed;
+        margin: auto;
+        margin-top: 8%;
+        width: 50%;
+        height: 50%;
+        position: relative;
+    }
+
+    .center2 {
+        text-align: center;
+        cursor: not-allowed;
+        margin: auto;
+        margin-top: 8%;
+        width: 50%;
+        height: 50%;
+        position: relative;
+        z-index: 1;
+    }
+
+    #Title {
+        cursor: default;
+        background-color: #202124;
+        transition: color 1s;
+        color: white;
+        font-family: titleFont;
+        font-size: 6.5rem;
+        font-weight: 100;
+        user-select: none;
+    }
+
+
+    #search {
+        cursor: default;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 500;
+        font-family: searchFont;
+        width: 75%;
+        height: 40px;
+        border: none;
+        border-radius: 100px;
+    }
+
+    #search:focus {
+        cursor: default;
+        outline: none;
+        transform: scale(1.1);
+        transition-duration: 1s;
+    }
+
+    #search:not(:focus) {
+        cursor: default;
+        transform: scale(1.0);
+        color: grey;
+        transition-duration: 0.3s;
+    }
+
+    .dot {
+        cursor: not-allowed;
+        width: 2px;
+        height: 2px;
+        background-color: white;
+        position: absolute;
+        pointer-events: none;
+    }
+</style>
+
+<script>
+
+    // when any button is clicked the search bar will be focused and typed
+    document.onkeypress = function () { document.getElementById("search").focus(); };
+
+    //when any button is released the title of the page will update with what is typed into the search bar
+    document.onkeyup = function () {
+        let input = document.getElementById("search").value;
+        if (input > "") {
+            let input = document.getElementById("search").value;
+            document.title = input;
+        }
+        else { document.title = "New Tab" }
+    };
+
+    document.onkeydown = function (evt) {
+        evt = evt || window.event;
+        //when the ESC button is clicked the search bar will be focused
+        if (evt.keyCode == 27) {//27 is the code for escape
+            document.getElementById("search").blur();
+        }
+
+        //when the ENTER button is clicked the search bar will search Google
+        if (evt.keyCode == 13) {//13 is the code for enter
+            let input = document.getElementById("search").value;
+            if (input == ":)") {
+                colorarry = ['black', 'silver', 'gray', 'white', 'maroon', 'red', 'purple', 'fuchsia', 'green', 'lime', 'olive', 'yellow', 'navy', 'blue', 'teal', 'aqua'];
+                var colornum = 0;
+                var InterID = setInterval(() => {
+                    if (colornum > colorarry.length) {
+                        clearInterval(InterID)
+                        colornum = 0;
+                    }
+                    console.log(colornum);
+                    document.getElementById("Title").style.color = (colorarry[colornum]);
+                    colornum++
+                }, 1000);
+            }
+            else { Search(); }
+        };
+
+    };
+    //Searching Google function
+    function Search() {
+        let input = document.getElementById("search").value;
+        if (input > "") {
+            document.location = ("https://www.google.com/search?q=" + input);
+        }
+    }
+
+
+    // drawing dots all over the page at the mouse position
+
+    onmousemove = function (e) {
+        //Logging purposes
+        // console.log("mouse location:", e.clientX, e.clientY);
+
+        //meat and potatoes of the snippet
+        var pos = e;
+        var dot;
+        dot = document.createElement('div');
+        dot.className = "dot";
+        dot.style.left = pos.x + "px";
+        dot.style.top = pos.y + "px";
+        document.body.appendChild(dot);
+    }      
+</script>
+
+<body>
+    <div class="center1">
+        <h1 id="Title">new tab</h1>
+    </div>
+    <div class="center2">
+        <form autocomplete="off" method="dialog">
+            <input id="search" autofocus type="text" placeholder="???" aria-autocomplete="none">
+        </form>
+    </div>
+
+</body>
+
+</html>
