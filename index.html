@@ -10,13 +10,13 @@
 
 <style>
     html {
-        cursor: not-allowed;
+        cursor: crosshair;
     }
 
     body {
         background-color: #202124;
         overflow: hidden;
-        cursor: not-allowed;
+        cursor: crosshair;
     }
 
     @font-face {
@@ -32,7 +32,7 @@
 
     .center1 {
         text-align: center;
-        cursor: not-allowed;
+        cursor: crosshair;
         margin: auto;
         margin-top: 8%;
         width: 50%;
@@ -42,7 +42,7 @@
 
     .center2 {
         text-align: center;
-        cursor: not-allowed;
+        cursor: crosshair;
         margin: auto;
         margin-top: 8%;
         width: 50%;
@@ -90,7 +90,7 @@
     }
 
     .dot {
-        cursor: not-allowed;
+        cursor: crosshair;
         width: 2px;
         height: 2px;
         background-color: white;
@@ -125,12 +125,12 @@
         if (evt.keyCode == 13) {//13 is the code for enter
             let input = document.getElementById("search").value;
             if (input == ":)") {
-                colorarry = ['black', 'silver', 'gray', 'white', 'maroon', 'red', 'purple', 'fuchsia', 'green', 'lime', 'olive', 'yellow', 'navy', 'blue', 'teal', 'aqua'];
+                colorarry = ['red', 'greeb', 'blue', 'white'];
                 var colornum = 0;
                 var InterID = setInterval(() => {
                     if (colornum > colorarry.length) {
                         clearInterval(InterID)
-                        colornum = 0;
+                        colornum = 0
                     }
                     console.log(colornum);
                     document.getElementById("Title").style.color = (colorarry[colornum]);
