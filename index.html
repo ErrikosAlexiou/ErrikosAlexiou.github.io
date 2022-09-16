@@ -125,12 +125,11 @@
         if (evt.keyCode == 13) {//13 is the code for enter
             let input = document.getElementById("search").value;
             if (input == ":)") {
-                colorarry = ['red', 'green', 'blue', 'white'];
+                colorarry = ['rgb(255,0,0)', 'rgb(0,255,0)', 'rgb(0,0,255)', 'rgb(255,255,255)'];
                 var colornum = 0;
                 var InterID = setInterval(() => {
-                    if (colornum > colorarry.length) {
+                    if (colornum >= colorarry.length - 1) {
                         clearInterval(InterID)
-                        colornum = 0
                     }
                     console.log(colornum);
                     document.getElementById("Title").style.color = (colorarry[colornum]);
