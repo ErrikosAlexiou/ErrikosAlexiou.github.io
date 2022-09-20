@@ -146,8 +146,22 @@
         if (input > "") {
             document.location = ("https://www.google.com/search?q=" + input);
         }
+        if (input == "note") {
+            document.location = ("https://www.evernote.com/client/web#?hm=true&");
+        }
+        if (input == "maps") {
+            document.location = ("https://www.google.com/maps/search/%s?hl=en&source=opensearch");
+        }
+        if (input == "flix") {
+            document.location = ("https://www.netflix.com");
+        }
+        if (input == "speed") {
+            document.location = ("http://speedtest.net");
+        }
+        if (input == "sap") {
+            document.location = ("https://web.whatsapp.com");
+        }
     }
-
 
     // drawing dots all over the page at the mouse position
 
@@ -163,7 +177,7 @@
         dot.style.left = pos.x + "px";
         dot.style.top = pos.y + "px";
         document.body.appendChild(dot);
-    }      
+    }
 </script>
 
 <body>
