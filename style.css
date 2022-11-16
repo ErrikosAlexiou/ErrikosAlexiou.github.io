@@ -1,0 +1,87 @@
+html {
+    cursor: crosshair;
+}
+
+body {
+    background-color: #202124;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+@font-face {
+    font-family: titleFont;
+    src: url("product-sans/Product\ Sans\ Regular.ttf");
+
+}
+
+@font-face {
+    font-family: searchFont;
+    src: url("Montserrat/Montserrat-VariableFont_wght.ttf")
+}
+
+.center1 {
+    text-align: center;
+    cursor: crosshair;
+    margin: auto;
+    margin-top: 8%;
+    width: 50%;
+    height: 50%;
+    position: relative;
+}
+
+.center2 {
+    text-align: center;
+    cursor: crosshair;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+#Title {
+    cursor: default;
+    background-color: #202124;
+    transition: color 1s;
+    color: white;
+    font-family: titleFont;
+    font-size: 6.5rem;
+    font-weight: 100;
+    user-select: none;
+    padding: 1%;
+}
+
+
+#search {
+    cursor: default;
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: searchFont;
+    width: 75%;
+    height: 40px;
+    border: none;
+    border-radius: 100px;
+}
+
+#search:focus {
+    cursor: default;
+    outline: none;
+    transform: scale(1.1);
+    transition-duration: 1s;
+}
+
+#search:not(:focus) {
+    cursor: default;
+    transform: scale(1.0);
+    color: grey;
+    transition-duration: 0.3s;
+}
+
+.dot {
+    cursor: crosshair;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    pointer-events: none;
+}
