@@ -1,4 +1,3 @@
-
 // when any button is clicked the search bar will be focused and typed
 document.onkeypress = function () { document.getElementById("search").focus(); };
 
@@ -10,7 +9,7 @@ document.onkeyup = function () {
         document.title = input;
     }
     else { document.title = "New Tab" }
-};
+}
 
 document.onkeydown = function (evt) {
     evt = evt || window.event;
@@ -29,15 +28,15 @@ document.onkeydown = function (evt) {
                 if (colornum >= colorarry.length - 1) {
                     clearInterval(InterID)
                 }
-                console.log(colornum);
+                // console.log(colornum);
                 document.getElementById("Title").style.color = (colorarry[colornum]);
                 colornum++
             }, 1000);
         }
         else { Search(); }
     };
+}
 
-};
 // Searching Google function
 function Search() {
     let input = document.getElementById("search").value;
@@ -78,6 +77,7 @@ function Search() {
 }
 
 // drawing dots all over the page at the mouse position
+isPressed = false;
 onmousemove = function (e) {
     //Logging purposes
     // console.log("mouse location:", e.clientX, e.clientY);
@@ -96,12 +96,10 @@ onmousemove = function (e) {
         isPressed = false;
     }
     if (isPressed == true) {
-        console.log(isPressed);
+        // console.log(isPressed);
         document.body.appendChild(dot);
     }
 }
-
-
 
 // making the clock work
 function myTime() {
