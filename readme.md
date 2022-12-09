@@ -1,5 +1,4 @@
 ## Custom New Tab Page
----
 
 A simple minimalistic New Tab Page with custom shortcuts.
 
