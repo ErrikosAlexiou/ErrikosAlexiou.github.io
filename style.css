@@ -1,5 +1,7 @@
 html {
     cursor: crosshair;
+    height: 100%;
+    width: 100%;
 }
 
 body {
@@ -40,7 +42,7 @@ body {
 }
 
 #Title {
-    cursor: default;
+    cursor: crosshair;
     background-color: #202124;
     transition: color 1s;
     color: white;
