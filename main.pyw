@@ -1,5 +1,3 @@
 import subprocess
 
-subprocess.run("cd html", shell=True)
-
-subprocess.run("py -m http.server", shell=True)
+subprocess.run("py -m http.server --directory html 8000", shell=True)
