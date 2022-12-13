@@ -113,5 +113,7 @@ function myTime() {
             if (num < 10) { return "0" + num; } return num;
         };
         document.getElementById("Title").innerHTML = current_time;
+
     }, 0);
 }
+myTime()

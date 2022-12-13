@@ -12,13 +12,13 @@ body {
 
 @font-face {
     font-family: titleFont;
-    src: url("product-sans/Product\ Sans\ Regular.ttf");
+    src: url("/fonts/product-sans/Product\ Sans\ Regular.ttf");
 
 }
 
 @font-face {
     font-family: searchFont;
-    src: url("Montserrat/Montserrat-VariableFont_wght.ttf")
+    src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
 }
 
 .center1 {
