@@ -49,8 +49,8 @@ function Search() {
         if (input > "") {
             document.location = ("https://www.google.com/search?q=" + input);
         }
-        if (input == "note") {
-            document.location = ("https://www.evernote.com/client/web#?hm=true&");
+        if (input == "chat") {
+            document.location = ("https://chat.openai.com");
         }
         if (input == "maps") {
             document.location = ("https://www.google.com/maps/search/%s?hl=en&source=opensearch");
@@ -70,8 +70,8 @@ function Search() {
         if (input == "youtube") {
             document.location = ("https://www.youtube.com/");
         }
-        if (input == "grehome") {
-            document.location = ("https://portal.gre.ac.uk/web/student/home")
+        if (input == "incase")j {
+            document.location = ("https://incase.wtf");
         }
     }
 }
