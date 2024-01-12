@@ -71,7 +71,7 @@ function Search() {
             document.location = ("https://www.youtube.com/");
         }
         if (input == "incase") {
-            document.location = ("https://incase.wtf");
+            document.location = ("https://incase.wtf")
         }
     }
 }
