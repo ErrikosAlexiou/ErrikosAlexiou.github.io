@@ -70,7 +70,7 @@ function Search() {
         if (input == "youtube") {
             document.location = ("https://www.youtube.com/");
         }
-        if (input == "incase")j {
+        if (input == "incase") {
             document.location = ("https://incase.wtf");
         }
     }
