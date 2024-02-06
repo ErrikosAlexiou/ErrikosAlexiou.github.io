@@ -67,6 +67,9 @@ function Search() {
         if (input == "yt") {
             document.location = ("https://www.youtube.com/");
         }
+        if (input == "vle") {
+            document.location = ("https://my.lsbu.ac.uk/campusm/home#menu");
+        }
         if (input == "youtube") {
             document.location = ("https://www.youtube.com/");
         }
