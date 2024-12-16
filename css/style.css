@@ -58,24 +58,38 @@ body {
     cursor: default;
     text-align: center;
     font-size: 1.25rem;
-    font-family: searchFont;
+    font-family: searchFont, Arial, sans-serif;
+    /* Fallback to system font */
     width: 75%;
     max-width: 700px;
     height: 40px;
     border: none;
     border-radius: 100px;
+    padding: 0 10px;
+    /* Add horizontal padding for better control */
+    margin: 0;
+    /* Reset margin */
+    line-height: 40px;
+    /* Ensure text is vertically centered */
+    box-sizing: border-box;
+    /* Prevent padding from affecting the input height */
+    transition: color 0.3s;
+    /* Only keep color transition */
+    appearance: none;
+    /* Disable browser-specific styles (important for Safari) */
+    -webkit-appearance: none;
+    /* Specific for Safari */
 }
 
 #search:focus {
     cursor: default;
     outline: none;
-    transform: scale(1.1);
-    transition-duration: 1s;
+    transition-duration: 0.3s;
+    /* Focus effect without scaling */
 }
 
 #search:not(:focus) {
     cursor: default;
-    transform: scale(1.0);
     color: grey;
     transition-duration: 0.3s;
 }
@@ -87,4 +101,49 @@ body {
     background-color: white;
     position: absolute;
     pointer-events: none;
+}
+
+/* Mobile-Specific Styles (Targeting small screens like iPhones) */
+@media (max-width: 768px) {
+
+    /* Resize and center title for mobile */
+    .TitleDiv {
+        margin-top: 10%;
+        width: 80%;
+    }
+
+    #Title {
+        font-size: 4.5rem;
+        /* Reduce font size for mobile */
+        margin: 0;
+    }
+
+    /* Adjust search bar for mobile */
+    #search {
+        width: 85%;
+        height: 35px;
+        /* Slightly smaller height */
+        font-size: 1.1rem;
+        /* Smaller font size for mobile */
+    }
+
+    /* Ensure that the search bar is fully visible on small screens */
+    .SearchDiv {
+        width: 90%;
+        /* Allow more space for the search input */
+    }
+
+    /* Optional: You can reduce the transition times for mobile for smoother performance */
+    #search:focus {
+        transition-duration: 0.2s;
+    }
+
+    #search:not(:focus) {
+        transition-duration: 0.2s;
+    }
+
+    /* Optionally, reduce the space for the search bar */
+    .SearchDiv {
+        margin-top: 5%;
+    }
 }
