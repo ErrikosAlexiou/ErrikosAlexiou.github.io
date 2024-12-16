@@ -58,38 +58,26 @@ body {
     cursor: default;
     text-align: center;
     font-size: 1.25rem;
-    font-family: searchFont, Arial, sans-serif;
-    /* Fallback to system font */
+    font-family: searchFont;
     width: 75%;
     max-width: 700px;
     height: 40px;
     border: none;
     border-radius: 100px;
-    padding: 0 10px;
-    /* Add horizontal padding for better control */
-    margin: 0;
-    /* Reset margin */
-    line-height: 40px;
-    /* Ensure text is vertically centered */
-    box-sizing: border-box;
-    /* Prevent padding from affecting the input height */
-    transition: color 0.3s;
-    /* Only keep color transition */
-    appearance: none;
-    /* Disable browser-specific styles (important for Safari) */
-    -webkit-appearance: none;
-    /* Specific for Safari */
 }
 
 #search:focus {
     cursor: default;
     outline: none;
-    transition-duration: 0.3s;
-    /* Focus effect without scaling */
+    margin: 0;
+    padding: 0;
+    transform: perspective(10px) scale(1.1);
+    transition-duration: 1s;
 }
 
 #search:not(:focus) {
     cursor: default;
+    transform: scale(1.0);
     color: grey;
     transition-duration: 0.3s;
 }
