@@ -81,36 +81,40 @@ function Search() {
 
 // drawing dots all over the page at the mouse position
 isPressed = false;
+
+// Function to handle dot-drawing with screen size check
 onmousemove = function (e) {
-    //Logging purposes
+    if (window.innerWidth <= 768) return; // Disable dots on mobile devices
+
+    // Logging purposes
     // console.log("mouse location:", e.clientX, e.clientY);
 
-    //meat and potatoes of the snippet
+    // Core functionality for dot-drawing
     var pos = e;
-    var dot;
-    dot = document.createElement('div');
+    var dot = document.createElement('div');
     dot.className = "dot";
     dot.style.left = pos.x + "px";
     dot.style.top = pos.y + "px";
-    onmousedown = function () {
-        isPressed = true;
-    }
-    onmouseup = function () {
-        isPressed = false;
-    }
-    if (isPressed == true) {
-        // console.log(isPressed);
+
+    if (isPressed) {
         document.body.appendChild(dot);
     }
-}
+};
+
+// Handle mouse button press and release
+onmousedown = function () {
+    if (window.innerWidth > 768) isPressed = true; // Only enable on larger screens
+};
+
+onmouseup = function () {
+    isPressed = false;
+};
 
 // making the clock work
 function myTime() {
     setInterval(() => {
         var date = new Date();
         var hour = date.getHours();
-        hour = (hour > 12) ? hour - 12 : hour;
-        hour = (hour == '00') ? 12 : hour;
         var current_time = appendZero(hour) + ":" + appendZero(date.getMinutes()) + ":" + appendZero(date.getSeconds());
         function appendZero(num) {
             if (num < 10) { return "0" + num; } return num;
