@@ -9,7 +9,6 @@
     /* Standard */
 }
 
-
 html {
     cursor: crosshair;
     height: 100%;
@@ -25,7 +24,6 @@ body {
 @font-face {
     font-family: titleFont;
     src: url("/fonts/product-sans/Product\ Sans\ Regular.ttf");
-
 }
 
 @font-face {
@@ -65,7 +63,6 @@ body {
     padding: 1%;
 }
 
-
 #search {
     cursor: default;
     text-align: center;
@@ -102,6 +99,20 @@ body {
     background-color: #e0e0e0;
     position: absolute;
     pointer-events: none;
+}
+
+/* Back link styling */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #4caf50;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #45a049;
 }
 
 /* Mobile-Specific Styles (Targeting small screens like iPhones) */
