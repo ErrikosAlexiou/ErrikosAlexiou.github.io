@@ -4,21 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keywords</title>
+    <title>Manage Keywords</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/keywords.css">
+    <script src="javascript/searching.js"></script>
+    <script src="javascript/keywordmanager.js"></script>
 </head>
 
 <body>
-    <h1>keywords</h1>
-    <div class="ManageKeywords">
-        <input id="newKeyword" type="text" placeholder="Keyword">
-        <input id="newURL" type="text" placeholder="URL">
-        <button onclick="addKeywordFromUI()">Add</button>
-        <button onclick="removeKeywordFromUI()">Remove</button>
+    <div class="container">
+        <h1>Manage Keywords</h1>
+        <div class="manage-keywords">
+            <input id="newKeyword" type="text" placeholder="Keyword">
+            <input id="newURL" type="text" placeholder="URL">
+            <button onclick="addKeywordFromUI()">Add</button>
+        </div>
+        <table id="keywordsTable">
+            <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>URL</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be added here -->
+            </tbody>
+        </table>
+        <a href="index.html" class="back-link">Back to Search</a>
     </div>
-    <a href="index.html">Hello</a>
 
+    <script>
+        // Populate table with existing keywords
+        function populateTable() {
+            const keywordsTable = document.getElementById("keywordsTable").querySelector("tbody");
+            const keywords = getKeywords();
+            keywordsTable.innerHTML = ""; // Clear table
 
+            Object.entries(keywords).forEach(([keyword, url]) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${keyword}</td>
+                    <td>${url}</td>
+                    <td><button onclick="removeKeyword('${keyword}'); populateTable();">Remove</button></td>
+                `;
+                keywordsTable.appendChild(row);
+            });
+        }
+
+        // Refresh table on page load
+        window.onload = populateTable;
+    </script>
 </body>
 
 </html>
