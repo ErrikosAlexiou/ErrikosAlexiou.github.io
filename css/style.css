@@ -17,7 +17,7 @@ html {
 
 body {
     background-color: #202124;
-    overflow: hidden;
+    overflow-x: hidden;
     cursor: crosshair;
 }
 
