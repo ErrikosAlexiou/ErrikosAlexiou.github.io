@@ -1,85 +1,202 @@
-/* General container styling */
+/* General Body Styles */
+body {
+    background-color: #202124;
+    font-family: searchFont;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for the entire content */
 .container {
     width: 80%;
-    margin: auto;
-    color: #e0e0e0;
-    font-family: searchFont;
-    text-align: center;
+    background-color: #2c2f33;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
+/* Heading Style */
 h1 {
-    margin: 20px 0;
-    font-family: titleFont;
-    font-size: 3rem;
     color: #e0e0e0;
-}
-
-.manage-keywords {
+    font-size: 2rem;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.manage-keywords input {
-    font-size: 1rem;
-    padding: 8px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    width: 30%;
+/* Manage Keywords Section */
+.manage-keywords {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
-.manage-keywords button {
+/* Input Fields Styling */
+#newKeyword,
+#newURL {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    margin: 0;
+    border: 1px solid #3a3a3a;
+    background-color: #ffffff;
+    color: #202124;
+    border-radius: 25px;
     font-size: 1rem;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4caf50;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#newKeyword:focus,
+#newURL:focus {
+    outline: none;
+    border-color: whitesmoke;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Add Button Styling */
+button {
+    min-width: 48px;
+    padding: 12px 24px;
+    background-color: #2e2e2e;
     color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.manage-keywords button:hover {
-    background-color: #45a049;
+/* Button Hover Effect */
+button:hover {
+    background-color: #3b3b3b;
+    transform: translateY(-2px);
 }
 
-/* Styling for the keywords table */
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: #2c2f33;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-table th,
-table td {
-    padding: 12px;
-    border: 1px solid #e0e0e0;
+th,
+td {
+    padding: 12px 20px;
     text-align: center;
+    color: #e0e0e0;
+    font-size: 1rem;
+    border-bottom: 1px solid #3a3a3a;
 }
 
-table th {
-    background-color: #4caf50;
+/* Header Row Styling */
+th {
+    background-color: #383c42;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Table Row Styling */
+tr:nth-child(even) {
+    background-color: #383c42;
+}
+
+tr:nth-child(odd) {
+    background-color: #43484e;
+}
+
+/* Remove green highlight when hovering over rows */
+tr:hover {
+    background-color: transparent;
+}
+
+/* Action Button in Table - Remove Button Styling */
+button.remove-btn {
+    background-color: #2e2e2e;
+    /* Default background */
     color: white;
-}
-
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-table tr:hover {
-    background-color: #ddd;
-}
-
-table button {
-    font-size: 0.9rem;
-    padding: 5px 10px;
     border: none;
-    border-radius: 3px;
-    background-color: #f44336;
-    color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-table button:hover {
-    background-color: #d32f2f;
+/* Remove button hover effect (turns red) */
+button.remove-btn:hover {
+    background-color: #e74c3c;
+}
+
+/* Back to Search Link Styling */
+.back-link {
+    text-decoration: none;
+    color: #4caf50;
+    background-color: #202124;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+/* Fix for the hover effect on the back-link */
+.back-link:hover {
+    background-color: #2c2f33;
+}
+
+/* Mobile-Specific Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .manage-keywords {
+        gap: 10px;
+    }
+
+    #newKeyword,
+    #newURL {
+        font-size: 0.9rem;
+        padding: 10px;
+        margin: 0 auto;
+        /* Center the inputs */
+    }
+
+    button {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 12px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th,
+    td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .back-link {
+        padding: 15px;
+    }
 }
