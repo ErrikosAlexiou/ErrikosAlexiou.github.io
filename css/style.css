@@ -108,6 +108,8 @@ body {
     text-decoration: none;
     color: #4caf50;
     font-size: 1rem;
+    font-family: searchFont;
+    /* Using searchFont for the backlink */
     transition: color 0.3s;
 }
 
