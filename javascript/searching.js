@@ -1,10 +1,19 @@
 // Initialize keywords from localStorage or default to an empty object
 function getKeywords() {
-    return JSON.parse(localStorage.getItem('keywords')) || {};
+    try {
+        return JSON.parse(localStorage.getItem('keywords')) || {};
+    } catch (e) {
+        console.error("Error accessing localStorage:", e);
+        return {};
+    }
 }
 
 function saveKeywords(keywords) {
-    localStorage.setItem('keywords', JSON.stringify(keywords));
+    try {
+        localStorage.setItem('keywords', JSON.stringify(keywords));
+    } catch (e) {
+        console.error("Error saving to localStorage:", e);
+    }
 }
 
 // Add a new keyword
@@ -21,14 +30,29 @@ function removeKeyword(keyword) {
     saveKeywords(keywords);
 }
 
+// Validate URL function
+function isValidURL(str) {
+    try {
+        new URL(str);
+        return true;
+    } catch (_) {
+        return false;
+    }
+}
+
 // Modified Search function
 function Search() {
     const input = document.getElementById("search").value.trim();
     const firstChar = input.charAt(0);
 
-    // Direct URL handling
+    // Direct URL handling with validation
     if (firstChar === "/") {
-        document.location = input.replace("/", "https://");
+        const url = "https://" + input.slice(1);
+        if (isValidURL(url)) {
+            document.location = url;
+        } else {
+            console.error("Invalid URL:", url);
+        }
         return;
     }
 
@@ -41,14 +65,14 @@ function Search() {
         return;
     }
 
-    // Fallback to Google search or hard-coded defaults
+    // Fallback to Google search
     if (input !== "") {
-        document.location = "https://www.google.com/search?q=" + input;
+        document.location = "https://www.google.com/search?q=" + encodeURIComponent(input);
     }
 }
 
-// Example: Pre-load default keywords (only on first load)
-if (!localStorage.getItem('keywords')) {
+// Example: Pre-load default keywords only if storage is empty
+if (Object.keys(getKeywords()).length === 0) {
     saveKeywords({
         "chat": "https://chat.openai.com",
         "maps": "https://www.google.com/maps",
