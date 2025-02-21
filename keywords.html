@@ -10,6 +10,27 @@
     <link rel="stylesheet" href="css/keywords.css">
     <script src="javascript/searching.js"></script>
     <script src="javascript/keywordmanager.js"></script>
+    <script>
+        // Populate table with existing keywords
+        function populateTable() {
+            const keywordsTable = document.getElementById("keywordsTable").querySelector("tbody");
+            const keywords = getKeywords();
+            keywordsTable.innerHTML = ""; // Clear table
+
+            Object.entries(keywords).forEach(([keyword, url]) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${keyword}</td>
+                    <td>${url}</td>
+                    <td><button class="remove-btn" onclick="removeKeyword('${keyword}'); populateTable();">Remove</button></td>
+                `;
+                keywordsTable.appendChild(row);
+            });
+        }
+
+        // Refresh table on page load
+        window.onload = populateTable;
+    </script>
 </head>
 
 <body>
@@ -34,28 +55,6 @@
         </table>
         <a href="index.html" class="back-link">Back to Search</a>
     </div>
-
-    <script>
-        // Populate table with existing keywords
-        function populateTable() {
-            const keywordsTable = document.getElementById("keywordsTable").querySelector("tbody");
-            const keywords = getKeywords();
-            keywordsTable.innerHTML = ""; // Clear table
-
-            Object.entries(keywords).forEach(([keyword, url]) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-                    <td>${keyword}</td>
-                    <td>${url}</td>
-                    <td><button class="remove-btn" onclick="removeKeyword('${keyword}'); populateTable();">Remove</button></td>
-                `;
-                keywordsTable.appendChild(row);
-            });
-        }
-
-        // Refresh table on page load
-        window.onload = populateTable;
-    </script>
 </body>
 
 </html>
