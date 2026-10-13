@@ -63,6 +63,12 @@ body {
     padding: 1%;
 }
 
+#Title .time-digit {
+    display: inline-block;
+    width: 0.65em;
+    text-align: center;
+}
+
 #search {
     cursor: default;
     text-align: center;

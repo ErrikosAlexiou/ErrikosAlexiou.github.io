@@ -7,8 +7,8 @@ function myTime() {
         function appendZero(num) {
             if (num < 10) { return "0" + num; } return num;
         };
-        document.getElementById("Title").innerHTML = current_time;
+        document.getElementById("Title").innerHTML = current_time.replace(/\d/g, '<span class="time-digit">$&</span>');
 
-    }, 0);
+    }, 1000);
 }
 myTime()
